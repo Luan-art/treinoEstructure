@@ -7,16 +7,17 @@ namespace Controllers
     public class CarController
     {
         private CarService carService;
+        private InsureceService insureceService;
 
         public CarController()
         {
             carService = new CarService();
+            insureceService = new InsureceService();
         }
         public bool Insert(Car car)
         {
-            Console.WriteLine("Controller");
-            return carService.Insert(car);
-
+             car.insurance.id = insureceService.Insert(car.insurance);
+             return carService.Insert(car);
         }
 
         public bool Update(Car car)

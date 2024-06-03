@@ -28,12 +28,14 @@ namespace Repositories
                 cmd.Parameters.Add(new SqlParameter("@Name", car.name));
                 cmd.Parameters.Add(new SqlParameter("@Color", car.color));
                 cmd.Parameters.Add(new SqlParameter("@Year", car.year));
+                cmd.Parameters.Add(new SqlParameter("@insurenceId", car.insurance.id));
 
                 cmd.ExecuteNonQuery();
 
                 result = true;
             } catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 return result;
 
             } finally { conn.Close(); }

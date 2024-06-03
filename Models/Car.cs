@@ -2,7 +2,7 @@
 {
     public class Car
     {
-        public readonly string Insert = "INSERT INTO TB_CAR (name, color, year) VALUES (@name, @color, @year)";
+        public readonly string Insert = "INSERT INTO TB_CAR (name, color, year, insurenceId) VALUES (@name, @color, @year, @insurenceId)";
         public readonly string Update = "UPDATE TB_CAR set name = @name, color = @color, year = @year WHERE id = @id";
         public readonly string Delete = "Delete from TB_CAR WHERE id = @id";
         public readonly string Get = "SELECT id, name, color, year FROM TB_CAR Where id = @id";
@@ -12,6 +12,8 @@
         public string name { get; set; }
         public string color { get; set; }
         public int year { get; set; }
+
+        public Insurance insurance { get; set; }
 
         public override string ToString()
         {
